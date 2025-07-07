@@ -8,7 +8,8 @@ public class ColorSlotMachine : MonoBehaviour
     public Button spinButton;
     public AchievementModal achievementModal;
 
-    private List<Sprite[]> combos = new List<Sprite[]>();
+    [Tooltip("Predefined wheel combinations")] 
+    public List<Sprite[]> combos = new List<Sprite[]>();
     private int comboIndex = 0;
     private int wheelsStopped = 0;
 
@@ -26,6 +27,16 @@ public class ColorSlotMachine : MonoBehaviour
 
     void Start()
     {
+        // Ensure wheels are set up with a prefab generator so they can spin
+        SlotWheel[] slotWheels = GetComponentsInChildren<SlotWheel>();
+        if (slotWheels.Length > 0)
+        {
+            var prefabGen = GetComponent<SlotWheelPrefabGenerator>();
+            if (prefabGen == null)
+                prefabGen = gameObject.AddComponent<SlotWheelPrefabGenerator>();
+            prefabGen.wheels = slotWheels;
+        }
+
         shoeB = Resources.Load<Sprite>("Shoes_B");
         shoeP = Resources.Load<Sprite>("Shoes_P");
         shoeR = Resources.Load<Sprite>("Shoes_R");
@@ -36,8 +47,17 @@ public class ColorSlotMachine : MonoBehaviour
             wheel.cycleSprites = new[] { shoeB, shoeP, shoeR, shoeW };
         }
 
-        combos.Add(new[] { shoeB, shoeR, shoeW });
-        combos.Add(new[] { shoeP, shoeB, shoeR });
+        if (combos == null || combos.Count == 0)
+        {
+            combos = new List<Sprite[]>
+            {
+                new[] { shoeB, shoeR, shoeW },
+                new[] { shoeP, shoeB, shoeR }
+            };
+        }
+
+        if (spinButton == null)
+            spinButton = GetComponentInChildren<Button>();
 
         if (spinButton != null)
             spinButton.onClick.AddListener(StartSpin);
