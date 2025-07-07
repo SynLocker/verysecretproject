@@ -8,8 +8,7 @@ public class ColorSlotMachine : MonoBehaviour
     public Button spinButton;
     public AchievementModal achievementModal;
 
-    [Tooltip("Predefined wheel combinations")] 
-    public List<Sprite[]> combos = new List<Sprite[]>();
+    private List<Sprite[]> combos = new List<Sprite[]>();
     private int comboIndex = 0;
     private int wheelsStopped = 0;
 
@@ -37,14 +36,8 @@ public class ColorSlotMachine : MonoBehaviour
             wheel.cycleSprites = new[] { shoeB, shoeP, shoeR, shoeW };
         }
 
-        if (combos == null || combos.Count == 0)
-        {
-            combos = new List<Sprite[]>
-            {
-                new[] { shoeB, shoeR, shoeW },
-                new[] { shoeP, shoeB, shoeR }
-            };
-        }
+        combos.Add(new[] { shoeB, shoeR, shoeW });
+        combos.Add(new[] { shoeP, shoeB, shoeR });
 
         if (spinButton != null)
             spinButton.onClick.AddListener(StartSpin);
