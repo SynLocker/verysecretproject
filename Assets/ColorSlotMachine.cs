@@ -27,6 +27,16 @@ public class ColorSlotMachine : MonoBehaviour
 
     void Start()
     {
+        // Ensure wheels are set up with a prefab generator so they can spin
+        SlotWheel[] slotWheels = GetComponentsInChildren<SlotWheel>();
+        if (slotWheels.Length > 0)
+        {
+            var prefabGen = GetComponent<SlotWheelPrefabGenerator>();
+            if (prefabGen == null)
+                prefabGen = gameObject.AddComponent<SlotWheelPrefabGenerator>();
+            prefabGen.wheels = slotWheels;
+        }
+
         shoeB = Resources.Load<Sprite>("Shoes_B");
         shoeP = Resources.Load<Sprite>("Shoes_P");
         shoeR = Resources.Load<Sprite>("Shoes_R");
@@ -45,6 +55,9 @@ public class ColorSlotMachine : MonoBehaviour
                 new[] { shoeP, shoeB, shoeR }
             };
         }
+
+        if (spinButton == null)
+            spinButton = GetComponentInChildren<Button>();
 
         if (spinButton != null)
             spinButton.onClick.AddListener(StartSpin);
