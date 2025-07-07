@@ -1,0 +1,192 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1000
+GameObject:
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Layer: 0
+  m_IsActive: 1
+  m_Component:
+  - component: {fileID: 1001}
+  - component: {fileID: 1002}
+--- !u!4 &1001
+Transform:
+  m_GameObject: {fileID: 1000}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+--- !u!20 &1002
+Camera:
+  m_GameObject: {fileID: 1000}
+  m_Enabled: 1
+  m_ClearFlags: 2
+  orthographic: 1
+  orthographic size: 5
+--- !u!1 &1010
+GameObject:
+  m_Name: ColorSlotMachine
+  m_Layer: 0
+  m_IsActive: 1
+  m_Component:
+  - component: {fileID: 1011}
+  - component: {fileID: 1012}
+--- !u!4 &1011
+Transform:
+  m_GameObject: {fileID: 1010}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1021}
+  - {fileID: 1031}
+  - {fileID: 1041}
+  - {fileID: 1051}
+  - {fileID: 1061}
+--- !u!114 &1012
+MonoBehaviour:
+  m_GameObject: {fileID: 1010}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: 6f05ca902bc00d6fe4e192e2d9647a76, type: 3}
+  wheels:
+  - {fileID: 1023}
+  - {fileID: 1033}
+  - {fileID: 1043}
+  spinButton: {fileID: 1053}
+  achievementModal: {fileID: 1063}
+--- !u!1 &1020
+GameObject:
+  m_Name: Wheel1
+  m_Layer: 0
+  m_IsActive: 1
+  m_Component:
+  - component: {fileID: 1021}
+  - component: {fileID: 1022}
+  - component: {fileID: 1023}
+--- !u!4 &1021
+Transform:
+  m_GameObject: {fileID: 1020}
+  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Father: {fileID: 1011}
+--- !u!212 &1022
+SpriteRenderer:
+  m_GameObject: {fileID: 1020}
+  m_Sprite: {fileID: 0}
+--- !u!114 &1023
+MonoBehaviour:
+  m_GameObject: {fileID: 1020}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: f8218250d7abbcb73b5f5eb2296df857, type: 3}
+  spriteRenderer: {fileID: 1022}
+  wheelIndex: 0
+--- !u!1 &1030
+GameObject:
+  m_Name: Wheel2
+  m_Layer: 0
+  m_IsActive: 1
+  m_Component:
+  - component: {fileID: 1031}
+  - component: {fileID: 1032}
+  - component: {fileID: 1033}
+--- !u!4 &1031
+Transform:
+  m_GameObject: {fileID: 1030}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Father: {fileID: 1011}
+--- !u!212 &1032
+SpriteRenderer:
+  m_GameObject: {fileID: 1030}
+  m_Sprite: {fileID: 0}
+--- !u!114 &1033
+MonoBehaviour:
+  m_GameObject: {fileID: 1030}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: f8218250d7abbcb73b5f5eb2296df857, type: 3}
+  spriteRenderer: {fileID: 1032}
+  wheelIndex: 1
+--- !u!1 &1040
+GameObject:
+  m_Name: Wheel3
+  m_Layer: 0
+  m_IsActive: 1
+  m_Component:
+  - component: {fileID: 1041}
+  - component: {fileID: 1042}
+  - component: {fileID: 1043}
+--- !u!4 &1041
+Transform:
+  m_GameObject: {fileID: 1040}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Father: {fileID: 1011}
+--- !u!212 &1042
+SpriteRenderer:
+  m_GameObject: {fileID: 1040}
+  m_Sprite: {fileID: 0}
+--- !u!114 &1043
+MonoBehaviour:
+  m_GameObject: {fileID: 1040}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: f8218250d7abbcb73b5f5eb2296df857, type: 3}
+  spriteRenderer: {fileID: 1042}
+  wheelIndex: 2
+--- !u!1 &1050
+GameObject:
+  m_Name: SpinButton
+  m_Layer: 0
+  m_IsActive: 1
+  m_Component:
+  - component: {fileID: 1051}
+  - component: {fileID: 1052}
+  - component: {fileID: 1053}
+--- !u!4 &1051
+Transform:
+  m_GameObject: {fileID: 1050}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Father: {fileID: 1011}
+--- !u!212 &1052
+SpriteRenderer:
+  m_GameObject: {fileID: 1050}
+  m_Sprite: {fileID: 0}
+--- !u!114 &1053
+MonoBehaviour:
+  m_GameObject: {fileID: 1050}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: 7dc0bb452a7ac8b75661c996c148e68a, type: 3}
+--- !u!1 &1060
+GameObject:
+  m_Name: AchievementModal
+  m_Layer: 0
+  m_IsActive: 1
+  m_Component:
+  - component: {fileID: 1061}
+  - component: {fileID: 1062}
+  - component: {fileID: 1063}
+--- !u!4 &1061
+Transform:
+  m_GameObject: {fileID: 1060}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Father: {fileID: 1011}
+--- !u!212 &1062
+SpriteRenderer:
+  m_GameObject: {fileID: 1060}
+  m_Sprite: {fileID: 0}
+--- !u!114 &1063
+MonoBehaviour:
+  m_GameObject: {fileID: 1060}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: dec91fcb1eb72f3a0b9037fd227cc361, type: 3}
+  messageText: {fileID: 0}
+--- !u!1660057539 &999999999
+SceneRoots:
+  m_Roots:
+  - {fileID: 1000}
+  - {fileID: 1010}
